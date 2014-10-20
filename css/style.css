@@ -1,0 +1,118 @@
+html, body {
+	height: 100%
+}
+
+header, footer {
+	min-width: 450px;
+	background-color: #0d4b96;
+	width: 100%;
+	height: 120px;
+	float: left;
+	clear: both;
+}
+
+.fancy {
+	font-size: 30px;
+	font-family: aladin;
+	color: #ffff42;
+	text-align: center;
+	margin: 20px;
+	text-shadow:0px 0px 0 rgb(212,212,23),1px 1px 0 rgb(169,169,-20),2px 2px 0 rgb(127,127,-62),3px 3px 0 rgb(84,84,-105),4px 4px 0 rgb(42,42,-147),5px 5px 0 rgb(-1,-1,-190), 6px 6px 0 rgb(-43,-43,-232),7px 7px 6px rgba(0,0,0,1),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+}
+
+.normal {
+	font-family: aladin;
+	font-size: 20px;
+	color: #ffff42;
+	text-align: center;
+	margin: 20px;
+}
+
+#header-name {
+	font-size: 80px;
+}
+
+.link {
+	margin: 5px 0px 0px 10px;	
+}
+
+a:link, a:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+
+
+a:hover {
+	color: #c9262d;
+}
+
+.content {
+	min-width: 450px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.navigation {
+	float: left; 
+	background: #84a5d2;
+	width: 25%;
+	max-width: 180px;
+	margin-bottom: -100000px; 
+	padding-bottom: 100000px;
+}
+
+.main {
+	padding: 15px;
+	min-height: 62vh;
+	background-color: #0d1f47;
+	overflow: auto;
+}
+
+.games {
+	color: 'e3e3e3';
+	/*display: none;*/
+	margin-left: 10px;
+}
+
+.post {
+	margin: 10px 20px;
+}
+
+p, h3, h6, table {
+	margin: 2px 20px;
+	color: #ffffff;
+}
+
+@media only screen and (max-device-width: 480px) {
+	#header-name {
+		font-size: 50px;
+	}
+
+	header, footer {
+		height: 70px;
+	}
+
+	.fancy {
+		font-size: 20px;
+		margin: 10px;
+	}
+
+	.post {
+		margin: 10px 20px;
+	}
+
+	.post * {
+		max-width: 80%;
+		margin: 2px 20px;
+		color: #ffffff;
+	}
+
+	.link {
+		margin: 10px 0px 0px 10px;	
+	}
+
+	.main {
+		min-height: 105vh;
+	}
+}
