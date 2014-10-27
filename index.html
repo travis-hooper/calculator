@@ -49,10 +49,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="dropdown" >
-                        <a class="dropdown-toggle" data-toggle="dropdown">Calculators and Converters<span class="caret"></span></a>
+                        <a class="dropdown-toggle" id="subject-dropdown" data-toggle="dropdown">Calculators and Converters<span class="caret"></span></a>
                         <!-- dropdown uses 'dropDownCtrl' to populate dropdown with subject names from index_model.html -->
                         <ul class="dropdown-menu" role="menu" ng-controller="dropDownCtrl">
-                            <li ng-repeat="subject in subjects"><a href="#/subject">{{subject.name}}</a></li>
+                            <li class="dropdown-subject" ng-repeat="subject in subjects"><a href="#/{{subject.route}}" ng-click="" >{{subject.name}}</a></li>
                             <!-- this will be removed for production -->
 <!--                             <li><a href="#/">Action</a></li>
                             <li><a href="#/">Another action</a></li>
@@ -92,29 +92,41 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div ng-view></div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h1>index.html</h1>
+    <!-- slide in menu -->
+    <div id="wrapper" class="toggled">
 
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" >
+            <ul class="sidebar-nav" ng-controller="subCatCtrl" >
+                <li class="sidebar-brand" >
+                    <a 
+                    href="#/{{subjectObj.route}}"
+                    ng-click="hideAll()" 
+                    >
+                        {{subjectObj.name}}
+                    </a>
+                </li>
+                <li ng-repeat="(key, subCat) in subjectObj.subCats" >
+                    <a class="side-subject" ng-click="toggleSubCat(key)">{{subCat.name}}</a>
+                    <ul class="sub-cat" ng-class="subCatState(key)" >
+                        <li ng-repeat="calc in subCat.calc">
+                            <a href="#/{{calc.route}}">{{calc.name}}</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <div class="container" id="main-content" ng-view></div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
 
 </body>
 </html>

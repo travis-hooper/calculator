@@ -1,1 +1,30 @@
-<h1>Calculator.html</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+<h1>{{calculatorObj.name}}</h1>
+
+<div ng-controller="calculatorCtrl" id="calc-div" class="container">
+	<form class="navbar-form navbar-left" >
+		<div class="form-group">
+			<div ng-repeat="input in calculatorObj.params.input">
+				<input
+				class="calc-form"
+				id="{{input}}"
+				ng-value="value"
+				ng-model="myVars[input]" 
+				type="text" class="form-control" placeholder="{{input}}"
+				>
+				<select ng-show="showUnits">
+					<option ng-repeat="unit in calculatorObj.params.units" class="form-control">{{unit}}</option>
+				</select>
+			</div>
+		</div>
+		<button class="calc-form" type="submit" class="btn btn-default" ng-click="output()" >Submit</button>
+	</form>
+	<br>
+	<br>
+	<h1 class="calc-form" ng-repeat="output in calculatorObj.params.output" >{{output}}: {{answer[$index]}}</h1>
+
+</div>
